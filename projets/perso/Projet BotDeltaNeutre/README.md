@@ -44,7 +44,7 @@ Il surveille les taux de funding des contrats perpétuels (90+ paires) et ouvre 
 ### 1. Cloner et installer
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/delta-neutral-bot.git
+git clone https://github.com/inathegoat/delta-neutral-bot.git
 cd delta-neutral-bot
 python3 -m venv .venv
 source .venv/bin/activate
@@ -139,4 +139,4 @@ Ce bot est fourni à des fins éducatives. Le trading de contrats perpétuels co
 
 ## 📄 Licence
 
-MIT
+InaCorporation - By InaTheGoat
