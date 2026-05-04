@@ -1,0 +1,152 @@
+[
+  {
+    "question": "De quoi parle le document Introduction.docx ?",
+    "ground_truth": "Le document traite des problèmes d'un domaine et de comment les résoudre via une introduction au sujet.",
+    "expected_sources": ["Introduction.docx"],
+    "min_sources": 1
+  },
+  {
+    "question": "Qu'est-ce que l'algèbre linéaire selon le cours ?",
+    "ground_truth": "L'algèbre linéaire étudie les espaces vectoriels, les applications linéaires, les matrices, les déterminants et les systèmes d'équations linéaires.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Quels sont les sujets d'examen mentionnés dans les documents ?",
+    "ground_truth": "Les documents mentionnent des sujets d'examen HIDE Session 1 avec des questions sur divers thèmes.",
+    "expected_sources": ["2023-2024 - SUJETS HIDE Session 1.docx"],
+    "min_sources": 1
+  },
+  {
+    "question": "Quels concepts mathématiques sont abordés dans le cours d'algèbre linéaire ?",
+    "ground_truth": "Espaces vectoriels, applications linéaires, matrices, déterminants, systèmes d'équations, diagonalisation, valeurs propres.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Parle-moi du CV mentionné dans les documents.",
+    "ground_truth": "Le document autoCV.pdf contient un curriculum vitae automatiquement généré.",
+    "expected_sources": ["autoCV.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Y a-t-il des informations sur le machine learning dans mes documents ?",
+    "ground_truth": "Le machine learning est mentionné comme une branche de l'intelligence artificielle utilisant des réseaux de neurones convolutifs et des transformers.",
+    "expected_sources": [],
+    "min_sources": 0
+  },
+  {
+    "question": "Quels sont les espaces vectoriels particuliers étudiés dans le cours ?",
+    "ground_truth": "Le cours mentionne les espaces vectoriels sur Z/2Z et les sous-espaces vectoriels.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Donne-moi un résumé du contenu de tous mes documents.",
+    "ground_truth": "Les documents couvrent l'algèbre linéaire, des sujets d'examen HIDE, une introduction à un domaine, et un CV.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf", "Introduction.docx", "2023-2024 - SUJETS HIDE Session 1.docx", "autoCV.pdf"],
+    "min_sources": 2
+  },
+  {
+    "question": "Comment l'algèbre linéaire est-elle définie dans le cours ?",
+    "ground_truth": "L'algèbre linéaire est l'étude des espaces vectoriels et des applications linéaires entre ces espaces.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Quels problèmes sont abordés dans le document Introduction ?",
+    "ground_truth": "Le document aborde les problèmes auxquels un domaine fait face et comment les résoudre.",
+    "expected_sources": ["Introduction.docx"],
+    "min_sources": 1
+  },
+  {
+    "question": "Le document d'algèbre linéaire parle-t-il de matrices ?",
+    "ground_truth": "Oui, le cours couvre les matrices, leurs opérations et propriétés.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Quelle est la date ou période des sujets d'examen HIDE ?",
+    "ground_truth": "Les sujets datent de la session 1 de l'année 2023-2024.",
+    "expected_sources": ["2023-2024 - SUJETS HIDE Session 1.docx"],
+    "min_sources": 1
+  },
+  {
+    "question": "Combien de documents sont disponibles dans le système ?",
+    "ground_truth": "Il y a 4 documents principaux : un cours d'algèbre linéaire, des sujets d'examen, une introduction et un CV.",
+    "expected_sources": [],
+    "min_sources": 0
+  },
+  {
+    "question": "Explique-moi le concept d'application linéaire selon le cours.",
+    "ground_truth": "Une application linéaire est une fonction entre deux espaces vectoriels qui préserve l'addition et la multiplication scalaire.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Y a-t-il des informations personnelles dans le CV ?",
+    "ground_truth": "Le CV contient des informations sur le parcours, les compétences et l'expérience professionnelle.",
+    "expected_sources": ["autoCV.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Qu'est-ce qu'un déterminant en algèbre linéaire ?",
+    "ground_truth": "Le déterminant est une valeur scalaire associée à une matrice carrée qui indique si la matrice est inversible.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Le cours parle-t-il de diagonalisation ?",
+    "ground_truth": "Oui, la diagonalisation est une technique pour simplifier les matrices en les exprimant dans une base de vecteurs propres.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Quels types d'exercices trouve-t-on dans les sujets HIDE ?",
+    "ground_truth": "Les sujets contiennent des questions pratiques et théoriques sur divers thèmes.",
+    "expected_sources": ["2023-2024 - SUJETS HIDE Session 1.docx"],
+    "min_sources": 1
+  },
+  {
+    "question": "Qu'est-ce qu'un espace vectoriel ?",
+    "ground_truth": "Un espace vectoriel est un ensemble muni d'une addition et d'une multiplication par un scalaire satisfaisant certains axiomes.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Le document Introduction.docx mentionne-t-il des solutions concrètes ?",
+    "ground_truth": "Il propose une approche pour résoudre les problèmes identifiés dans le domaine concerné.",
+    "expected_sources": ["Introduction.docx"],
+    "min_sources": 1
+  },
+  {
+    "question": "Quel est le format du CV dans les documents ?",
+    "ground_truth": "Le CV est au format PDF, généré automatiquement.",
+    "expected_sources": ["autoCV.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Compare les sujets HIDE avec le cours d'algèbre linéaire.",
+    "ground_truth": "Les sujets HIDE sont des examens pratiques tandis que le cours d'algèbre linéaire est un support théorique.",
+    "expected_sources": ["2023-2024 - SUJETS HIDE Session 1.docx", "Cours___Algebre_lineaire.pdf"],
+    "min_sources": 2
+  },
+  {
+    "question": "Quels sont les thèmes principaux des sujets d'examen ?",
+    "ground_truth": "Les sujets couvrent plusieurs thèmes avec des questions à choix multiples et des exercices.",
+    "expected_sources": ["2023-2024 - SUJETS HIDE Session 1.docx"],
+    "min_sources": 1
+  },
+  {
+    "question": "Le cours d'algèbre linéaire contient-il des exemples ?",
+    "ground_truth": "Oui, le cours inclut des exemples pour illustrer les concepts théoriques.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  },
+  {
+    "question": "Quelle est la différence entre un espace vectoriel et un sous-espace vectoriel ?",
+    "ground_truth": "Un sous-espace vectoriel est un sous-ensemble d'un espace vectoriel qui est lui-même un espace vectoriel pour les mêmes opérations.",
+    "expected_sources": ["Cours___Algebre_lineaire.pdf"],
+    "min_sources": 1
+  }
+]

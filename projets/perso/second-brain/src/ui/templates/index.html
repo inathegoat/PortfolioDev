@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Brain — Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Vis-Network -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body class="dark-theme">
+    
+    <!-- Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="app-container glass-panel">
+        
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-brain logo-icon"></i>
+                <h2>Second Brain</h2>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="nav-item active" data-target="view-overview">
+                    <i class="fa-solid fa-chart-pie"></i> Overview
+                </li>
+                <li class="nav-item" data-target="view-chat">
+                    <i class="fa-solid fa-message"></i> Chat
+                </li>
+                <li class="nav-item" data-target="view-tasks">
+                    <i class="fa-solid fa-list-check"></i> Tasks
+                </li>
+                <li class="nav-item" data-target="view-goals">
+                    <i class="fa-solid fa-bullseye"></i> Goals
+                </li>
+                <li class="nav-item" data-target="view-documents">
+                    <i class="fa-solid fa-file"></i> Documents
+                </li>
+                <li class="nav-item" data-target="view-graph">
+                    <i class="fa-solid fa-circle-nodes"></i> Constellation
+                </li>
+            </ul>
+            
+            <div class="agent-control">
+                <p>Jarvis Agent</p>
+                <label class="switch">
+                    <input type="checkbox" id="agent-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span id="agent-status" class="status-indicator status-off">Arrêté</span>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- OVERVIEW VIEW -->
+            <section id="view-overview" class="view-section active">
+                <header>
+                    <h1>Dashboard Overview</h1>
+                    <p class="subtitle">Votre centre de commande cognitif.</p>
+                </header>
+                
+                <div class="stats-grid">
+                    <div class="stat-card glass-panel">
+                        <i class="fa-solid fa-database stat-icon"></i>
+                        <div class="stat-info">
+                            <h3>Mémoires</h3>
+                            <p id="stat-memories">--</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <i class="fa-solid fa-list-check stat-icon"></i>
+                        <div class="stat-info">
+                            <h3>Tâches en attente</h3>
+                            <p id="stat-tasks-pending">--</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <i class="fa-solid fa-check-double stat-icon"></i>
+                        <div class="stat-info">
+                            <h3>Tâches terminées</h3>
+                            <p id="stat-tasks-done">--</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <i class="fa-solid fa-bullseye stat-icon"></i>
+                        <div class="stat-info">
+                            <h3>Objectifs Actifs</h3>
+                            <p id="stat-goals">--</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity-container">
+                    <h2>Mémoires Récentes</h2>
+                    <div class="memories-list glass-panel" id="recent-memories-list">
+                        <!-- Populated by JS -->
+                        <div class="loading-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHAT VIEW -->
+            <section id="view-chat" class="view-section hidden">
+                <header>
+                    <h1>Interaction Locale</h1>
+                    <p class="subtitle">Discutez avec votre Second Brain en toute confidentialité.</p>
+                </header>
+                
+                <div class="chat-container glass-panel">
+                    <div class="chat-history" id="chat-history">
+                        <div class="chat-message ai-message">
+                            <div class="avatar"><i class="fa-solid fa-brain"></i></div>
+                            <div class="bubble">Bonjour ! Posez-moi une question sur vos documents.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area" style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-top: 1px solid var(--glass-border);">
+                        <div style="display: flex; gap: 16px;">
+                            <input type="text" id="chat-input" placeholder="Tapez votre message ici..." autocomplete="off">
+                            <button id="btn-send-chat" class="btn-primary">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; justify-content: flex-end;">
+                            <label style="font-size: 13px; color: var(--text-secondary);"><i class="fa-solid fa-globe" style="margin-right: 4px;"></i> Recherche Internet</label>
+                            <label class="switch" style="width: 36px; height: 18px; margin: 0;">
+                                <input type="checkbox" id="internet-toggle">
+                                <span class="slider round" style="border-radius: 18px;"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TASKS VIEW -->
+            <section id="view-tasks" class="view-section hidden">
+                <header>
+                    <h1>Gestion des Tâches</h1>
+                    <p class="subtitle">Actions générées par l'agent planificateur.</p>
+                </header>
+                
+                <div class="tasks-board">
+                    <div class="task-column glass-panel">
+                        <h3>À faire (To Do)</h3>
+                        <div class="task-list" id="task-list-todo"></div>
+                    </div>
+                    
+                    <div class="task-column glass-panel">
+                        <h3>En cours</h3>
+                        <div class="task-list" id="task-list-progress"></div>
+                    </div>
+                    
+                    <div class="task-column glass-panel">
+                        <h3>Terminées</h3>
+                        <div class="task-list" id="task-list-done"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GOALS VIEW -->
+            <section id="view-goals" class="view-section hidden">
+                <header>
+                    <h1>Objectifs Stratégiques</h1>
+                    <p class="subtitle">Vos priorités actuelles guident l'attention du système.</p>
+                </header>
+                
+                <div class="goals-grid" id="goals-grid">
+                    <!-- Populated by JS -->
+                    <div class="loading-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i></div>
+                </div>
+            </section>
+
+            <!-- DOCUMENTS VIEW -->
+            <section id="view-documents" class="view-section hidden">
+                <header style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div>
+                        <h1>Documents de Connaissance</h1>
+                        <p class="subtitle">Importez de nouveaux fichiers et gérez votre base de connaissances.</p>
+                    </div>
+                    <div class="upload-area">
+                        <input type="file" id="file-upload" style="display: none;" accept=".pdf,.txt,.md,.docx,.xlsx,.pptx">
+                        <label for="file-upload" class="btn-primary" style="padding: 12px 24px; font-size: 14px; width: auto; height: auto; border-radius: 8px;">
+                            <i class="fa-solid fa-upload" style="margin-right: 8px;"></i> Importer un fichier
+                        </label>
+                    </div>
+                </header>
+                
+                <div class="glass-panel" style="padding: 24px;">
+                    <table class="documents-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <th style="padding: 12px; color: var(--text-secondary);">Fichier</th>
+                                <th style="padding: 12px; color: var(--text-secondary);">Type</th>
+                                <th style="padding: 12px; color: var(--text-secondary);">Statut</th>
+                                <th style="padding: 12px; color: var(--text-secondary);">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="documents-list">
+                            <!-- Populated by JS -->
+                            <tr><td colspan="4" class="loading-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- GRAPH VIEW -->
+            <section id="view-graph" class="view-section">
+                <header>
+                    <h1>Constellation</h1>
+                    <p class="subtitle">Visualisation de vos objectifs, tâches et documents.</p>
+                </header>
+                <div class="glass-panel" style="height: calc(100vh - 150px); padding: 0;">
+                    <div id="network-container" style="width: 100%; height: 100%;"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Markdown and Math Parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+          displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

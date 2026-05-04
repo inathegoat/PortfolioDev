@@ -1,0 +1,49 @@
+# Docker
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+mon_env/
+venv/
+env/
+
+# Data (personal documents)
+data/raw/*
+data/processed/*
+data/db/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/db/.gitkeep
+
+# Secrets
+.env
+
+# Logs
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.augment/
+.clinerules/
+.cursor/
+.roo/
+.windsurf/
+.rules
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.github/
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/

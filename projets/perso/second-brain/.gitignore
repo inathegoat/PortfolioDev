@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
+.venv/
+env/
+mon_env/
+
+# Data (personal documents — never commit)
+data/raw/*
+data/processed/*
+data/db/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/db/.gitkeep
+
+# Memory (private conversation history)
+memory/*
+!memory/.gitkeep
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
