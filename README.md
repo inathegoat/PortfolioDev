@@ -20,6 +20,7 @@ I'm a double-degree student in Mathematics and Economics, on track to become a q
 |---------|-------------|-------|
 | **Delta-Neutral Funding Bot** | Automated arbitrage bot for Hyperliquid DEX. Monitors 90+ perpetual pairs, executes delta-neutral positions. Telegram dashboard & circuit breaker. | Python, asyncio, WebSocket API |
 | **Second Brain (RAG)** | Local document indexing & question-answering system with exact citations. Modular pipeline: parse → chunk → embed → rerank. Injection detection & benchmark suite. | Python, Ollama, RAG pipeline |
+| **University Projects** | Python introduction, Monte Carlo simulations & options pricing models | Python, NumPy, pandas, SciPy |
 
 ---
 
@@ -27,7 +28,7 @@ I'm a double-degree student in Mathematics and Economics, on track to become a q
 
 - **Mathematics:** Analysis, linear algebra, probability, stochastic processes, Fourier analysis
 - **Economics:** Microeconomics & game theory, econometrics (ARCH/GARCH), actuarial mathematics
-- **Programming:** Python (pandas, numpy, scipy, matplotlib, asyncio), R, LaTeX, Git
+- **Programming:** Python (pandas, numpy, scipy, matplotlib), R, LaTeX, Git
 - **Languages:** French (native), English (fluent)
 
 ---
