@@ -1,7 +1,7 @@
 # Second Brain
 
-**Système RAG local, évalué, sécurisé et modulaire.**  
-Indexe vos documents, répond avec citations exactes, détecte les injections.
+**Local, evaluated, secure, modular RAG system.**  
+Index your documents, answer with exact citations, detect injections.
 
 [![CI](https://github.com/user/second-brain/actions/workflows/ci.yml/badge.svg)](https://github.com/user/second-brain/actions)
 ![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)
@@ -9,19 +9,19 @@ Indexe vos documents, répond avec citations exactes, détecte les injections.
 
 ---
 
-## Démo rapide
+## Quick Demo
 
 ```bash
-# 1. Ingérer un document
+# 1. Ingest a document
 python main.py ingest
 
-# 2. Poser une question
-python main.py query "Qu'est-ce que l'algèbre linéaire selon le cours ?"
+# 2. Ask a question
+python main.py query "What is linear algebra?"
 
-# → Réponse avec citations :
-# L'algèbre linéaire étudie les espaces vectoriels et les applications
-# linéaires [Source: Cours___Algebre_lineaire.pdf]. Elle couvre les matrices,
-# les déterminants et la diagonalisation [Source: Cours___Algebre_lineaire.pdf].
+# → Answer with citations:
+# Linear algebra studies vector spaces and linear mappings
+# [Source: Cours___Algebre_lineaire.pdf]. It covers matrices,
+# determinants, and diagonalisation [Source: Cours___Algebre_lineaire.pdf].
 ```
 
 ---
@@ -30,24 +30,24 @@ python main.py query "Qu'est-ce que l'algèbre linéaire selon le cours ?"
 
 ```
 second-brain/
-├── config/settings.py          ← Configuration centralisée (.env)
+├── config/settings.py          ← Centralised configuration (.env)
 ├── main.py                     ← CLI (ingest, query, chat, stats...)
 ├── src/
 │   ├── core/                   ← logging, errors, metrics
-│   ├── ingestion/              ← Pipeline unifié (CLI + API)
+│   ├── ingestion/              ← Unified pipeline (CLI + API)
 │   │   └── pipeline.py         ← parse → chunk → embed → store
 │   ├── retrieval/              ← Reranker (MMR + LLM)
 │   │   └── reranker.py
-│   ├── evaluation/             ← Benchmark RAG
+│   ├── evaluation/             ← RAG benchmark
 │   │   └── benchmark.py        ← faithfulness, relevance, recall, latency
 │   ├── ai/                     ← LLM client + RAG pipeline
 │   │   ├── llm_client.py       ← Ollama HTTP wrapper
 │   │   ├── rag_pipeline.py     ← RAG v4 (tracing, citations, injection detect)
 │   │   └── tools.py            ← Tool registry (calculator, web_search...)
 │   ├── agents_v2/              ← Minimalist 3-agent system
-│   │   ├── planner.py          ← Décompose la demande en étapes
-│   │   ├── retriever.py        ← Cherche dans les documents
-│   │   └── executor.py         ← Exécute et produit la réponse finale
+│   │   ├── planner.py          ← Decomposes request into steps
+│   │   ├── retriever.py        ← Searches documents
+│   │   └── executor.py         ← Executes and produces final answer
 │   ├── agent/                  ← Full multi-agent system (advanced)
 │   ├── memory/                 ← vector_store, history, conversation
 │   ├── processing/             ← parsers, chunker, embedder
@@ -56,90 +56,90 @@ second-brain/
 │   ├── api/main.py             ← FastAPI (auth, upload, metrics)
 │   └── ui/                     ← Flask dashboard, Telegram bot
 ├── tests/
-│   ├── test_core.py            ← 24 tests unitaires
-│   ├── test_integration.py     ← 3 tests d'intégration (Ollama requis)
-│   ├── test_agents.py          ← Tests multi-agents
-│   └── test_tools.py           ← Tests tool system
-├── benchmark_cases.json        ← 25 questions/réponses pour évaluation
+│   ├── test_core.py            ← 24 unit tests
+│   ├── test_integration.py     ← 3 integration tests (Ollama required)
+│   ├── test_agents.py          ← Multi-agent tests
+│   └── test_tools.py           ← Tool system tests
+├── benchmark_cases.json        ← 25 question/answer pairs for evaluation
 ├── pyproject.toml              ← Metadata + tool config (ruff, pytest, mypy)
-├── requirements.txt            ← Dépendances lockées
-├── Dockerfile                  ← Build multi-stage
-├── .env.example                ← Template sans secrets
-└── README.md                   ← Ce fichier
+├── requirements.txt            ← Locked dependencies
+├── Dockerfile                  ← Multi-stage build
+├── .env.example                ← Template without secrets
+└── README.md                   ← This file
 ```
 
 ---
 
 ## Installation
 
-### Prérequis
+### Prerequisites
 - **Python 3.11+**
-- **Ollama** installé et en cours d'exécution (`ollama serve`)
-- Un modèle LLM pullé : `ollama pull qwen2.5:latest`
+- **Ollama** installed and running (`ollama serve`)
+- A pulled LLM model: `ollama pull qwen2.5:latest`
 
 ```bash
-# 1. Cloner
+# 1. Clone
 git clone <repo> && cd second-brain
 
-# 2. Environnement virtuel
+# 2. Virtual environment
 python -m venv .venv && source .venv/bin/activate
 
-# 3. Dépendances
+# 3. Dependencies
 pip install -r requirements.txt
 
 # 4. Configuration
 cp .env.example .env
-# Éditer .env : choisir LLM_MODEL, optionnellement TELEGRAM_BOT_TOKEN, API_AUTH_TOKEN
+# Edit .env: set LLM_MODEL, optionally TELEGRAM_BOT_TOKEN, API_AUTH_TOKEN
 
-# 5. Placer vos documents dans data/raw/
-#    (PDF, DOCX, TXT, MD, XLSX, PPTX supportés)
+# 5. Place your documents in data/raw/
+#    (Supports PDF, DOCX, TXT, MD, XLSX, PPTX)
 
-# 6. Ingérer
+# 6. Ingest
 python main.py ingest
 ```
 
 ---
 
-## Utilisation
+## Usage
 
 ### CLI
 
-| Commande | Description |
-|----------|-------------|
-| `python main.py ingest` | Ingérer tous les nouveaux documents |
-| `python main.py ingest --file doc.pdf` | Ingérer un fichier spécifique |
-| `python main.py query "Question ?"` | Poser une question (RAG) |
-| `python main.py chat` | Chat interactif |
-| `python main.py list` | Lister les documents ingérés |
-| `python main.py stats` | Statistiques système |
-| `python main.py delete <id>` | Supprimer un document |
-| `python main.py goals` | Gérer les objectifs |
-| `python main.py tasks` | Gérer les tâches |
+| Command | Description |
+|---------|-------------|
+| `python main.py ingest` | Ingest all new documents |
+| `python main.py ingest --file doc.pdf` | Ingest a specific file |
+| `python main.py query "Question ?"` | Ask a question (RAG) |
+| `python main.py chat` | Interactive chat |
+| `python main.py list` | List ingested documents |
+| `python main.py stats` | System statistics |
+| `python main.py delete <id>` | Delete a document |
+| `python main.py goals` | Manage goals |
+| `python main.py tasks` | Manage tasks |
 
 ### API
 
 ```bash
-# Lancer l'API (localhost uniquement)
+# Run API (localhost only)
 uvicorn src.api.main:app --host 127.0.0.1 --port 8000
 
-# Avec auth token pour exposition réseau
-# Dans .env : API_AUTH_TOKEN=votre_token_secret
-# Puis :
+# With auth token for network exposure
+# In .env: API_AUTH_TOKEN=your_secret_token
+# Then:
 uvicorn src.api.main:app --host 0.0.0.0 --port 8000
-# → Toutes les routes /api/* nécessitent : Authorization: Bearer votre_token_secret
+# → All /api/* routes require: Authorization: Bearer your_secret_token
 ```
 
-**Endpoints :**
+**Endpoints:**
 
-| Méthode | Route | Description |
-|---------|-------|-------------|
-| `GET` | `/` | Dashboard HTML |
-| `POST` | `/api/chat` | Chat RAG + tool-use |
-| `POST` | `/api/documents/upload` | Upload + ingestion |
-| `GET` | `/api/documents` | Liste des documents |
-| `GET` | `/api/status` | État système (Ollama, tâches...) |
-| `GET` | `/api/metrics` | Métriques runtime (latence, erreurs...) |
-| `GET` | `/api/tasks` | Kanban des tâches |
+| Method | Route | Description |
+|--------|-------|-------------|
+| `GET` | `/` | HTML dashboard |
+| `POST` | `/api/chat` | RAG chat + tool-use |
+| `POST` | `/api/documents/upload` | Upload + ingest |
+| `GET` | `/api/documents` | Document list |
+| `GET` | `/api/status` | System status (Ollama, tasks...) |
+| `GET` | `/api/metrics` | Runtime metrics (latency, errors...) |
+| `GET` | `/api/tasks` | Task kanban |
 
 ### Docker
 
@@ -150,10 +150,10 @@ docker run -p 8000:8000 -v $(pwd)/data:/app/data second-brain
 
 ---
 
-## Stack technique
+## Tech Stack
 
-| Couche | Technologie |
-|--------|-------------|
+| Layer | Technology |
+|-------|------------|
 | **LLM** | Ollama (qwen2.5, qwen3, mistral...) |
 | **Embeddings** | sentence-transformers (all-MiniLM-L6-v2, 384d) |
 | **Vector DB** | ChromaDB (cosine similarity, persistent) |
@@ -161,8 +161,8 @@ docker run -p 8000:8000 -v $(pwd)/data:/app/data second-brain
 | **API** | FastAPI + Pydantic v2 |
 | **Dashboard** | Flask + vanilla JS (dark theme) |
 | **Reranking** | MMR + LLM-based scoring |
-| **Évaluation** | LLM-judged (faithfulness, relevance, correctness) |
-| **Sécurité** | Bearer auth, anti path-traversal, injection detection, deny-by-default |
+| **Evaluation** | LLM-judged (faithfulness, relevance, correctness) |
+| **Security** | Bearer auth, anti path-traversal, 50 MB upload limit, injection detection, deny-by-default |
 | **Tests** | pytest (24 unit + 3 integration) |
 | **CI/CD** | GitHub Actions (lint → test → docker build) |
 
@@ -170,7 +170,7 @@ docker run -p 8000:8000 -v $(pwd)/data:/app/data second-brain
 
 ## Agents
 
-### Agents V2 (recommandé — 3 agents)
+### Agents V2 (recommended — 3 agents)
 
 ```python
 from src.agents_v2 import Planner, Retriever, Executor
@@ -180,22 +180,22 @@ retriever = Retriever(rag_pipeline=rag)
 executor = Executor(llm_client)
 
 # Plan → Retrieve → Execute
-steps = planner.plan("Qu'est-ce que l'algèbre linéaire ?")
+steps = planner.plan("What is linear algebra?")
 chunks = retriever.search(steps[0].params["query"])
 result = executor.execute(steps, context=retriever.format_context(chunks))
 print(result["answer"])
 ```
 
-### Agents V1 (avancé — 19 modules)
+### Agents V1 (advanced — 19 modules)
 
-Système multi-agent complet dans `src/agent/` : Coordinator, Strategic, Adaptive, Planner, Critic, Optimizer, Execution, BrainLoop, Attention...
+Full multi-agent system in `src/agent/`: Coordinator, Strategic, Adaptive, Planner, Critic, Optimizer, Execution, BrainLoop, Attention...
 
 ---
 
-## Évaluation
+## Evaluation
 
 ```bash
-# Lancer le benchmark
+# Run the benchmark
 python -c "
 from src.ai.rag_pipeline import RAGPipeline
 from src.evaluation import RAGBenchmark
@@ -207,41 +207,41 @@ bm.save_report(report, 'eval_report.json')
 "
 ```
 
-Métriques évaluées :
-- **Faithfulness** : l'answer utilise-t-elle uniquement le contexte ?
-- **Relevance** : le contexte récupéré est-il pertinent ?
-- **Answer Correctness** : la réponse correspond-elle à la vérité terrain ?
-- **Chunk Recall** : combien de sources attendues ont été retrouvées ?
-- **Latence** : temps de réponse total (ms)
+Metrics evaluated:
+- **Faithfulness**: does the answer only use context ?
+- **Relevance**: is the retrieved context relevant ?
+- **Answer Correctness**: does the answer match ground truth ?
+- **Chunk Recall**: how many expected sources were found ?
+- **Latency**: total response time (ms)
 
 ---
 
-## Sécurité
+## Security
 
-- **Auth API** : `Bearer <token>` obligatoire si bind `0.0.0.0`
-- **Upload** : anti path-traversal (UUID), limite 50 MB, validation extensions
-- **Telegram** : deny-by-default (liste blanche obligatoire)
-- **Injection** : 7 patterns de détection (ignore all instructions, DAN, system prompt override...)
-- **Calculator** : parseur AST sécurisé (pas de `eval`)
-- **Secrets** : `.env` dans `.gitignore`, `.env.example` sans secrets
+- **API auth**: `Bearer <token>` required when binding `0.0.0.0`
+- **Upload**: anti path-traversal (UUID), 50 MB limit, extension validation
+- **Telegram**: deny-by-default (whitelist mandatory)
+- **Injection**: 7 detection patterns (ignore all instructions, DAN, system prompt override...)
+- **Calculator**: secure AST parser (no `eval`)
+- **Secrets**: `.env` in `.gitignore`, `.env.example` without secrets
 
 ---
 
 ## Roadmap
 
-- [x] V1 RAG fiable (citations, tracing, injection detection)
-- [x] Benchmark 25 questions
-- [x] Tests unitaires + intégration
-- [x] Sécurité (auth, upload, path traversal)
-- [x] Agents simplifiés (3 agents)
+- [x] Reliable V1 RAG (citations, tracing, injection detection)
+- [x] 25-question benchmark
+- [x] Unit + integration tests
+- [x] Security (auth, upload, path traversal)
+- [x] Simplified agents (3 agents)
 - [x] CI/CD GitHub Actions
 - [x] Docker
-- [ ] Dashboard monitoring temps réel
-- [ ] Mode hors-ligne complet (pas de HF Hub)
-- [ ] Plugins sandboxés (Gmail, calendrier, Spotify)
+- [ ] Real-time monitoring dashboard
+- [ ] Full offline mode (no HF Hub)
+- [ ] Sandboxed plugins (Gmail, calendar, Spotify)
 
 ---
 
-## Licence
+## License
 
 MIT
