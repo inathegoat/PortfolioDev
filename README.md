@@ -1,20 +1,43 @@
-# 📚 Portfolio Python — Projets personnels et universitaires
+# Jo-Sheun AVRIL
 
-Bienvenue dans ce dépôt !
+**Maths & Economics double degree student @ Université d'Angers**  
+Building tools for quantitative finance and machine learning.
 
-Ce repository regroupe mon apprentissage de Python à travers des **exercices**, des **examens**, des **notebooks** et des projets en évolution. L’objectif est de garder un espace propre, lisible et facile à enrichir au fil du temps.
+---
 
-## 🎯 Objectifs du répertoire
-- Centraliser mes travaux Python dans une structure claire.
-- Séparer les projets selon les catégories suivantes : personnel ou universitaire.
-- Avoir un portfolio Python pour le présenter pour des stages/CV
+## About
 
-## 🗂️ Organisation
-```text
-.
-├── README.md
-└── projets/
-    ├── perso/
-    └── universitaire/
+I'm a double-degree student in Mathematics and Economics, on track to become a quantitative analyst in energy and commodity markets. I build things — trading bots, RAG systems, and whatever else teaches me something.
 
-```
+**Currently:** L3 Double Licence Mathématiques-Économie  
+**Looking for:** MSc Finance / Quantitative Finance (China / Europe, 2027)
+
+---
+
+## Projects
+
+| Project | Description | Stack |
+|---------|-------------|-------|
+| **Delta-Neutral Funding Bot** | Automated arbitrage bot for Hyperliquid DEX. Monitors 90+ perpetual pairs, executes delta-neutral positions. Telegram dashboard & circuit breaker. | Python, asyncio, WebSocket API |
+| **Second Brain (RAG)** | Local document indexing & question-answering system with exact citations. Modular pipeline: parse → chunk → embed → rerank. Injection detection & benchmark suite. | Python, Ollama, RAG pipeline |
+
+---
+
+## Skills
+
+- **Mathematics:** Analysis, linear algebra, probability, stochastic processes, Fourier analysis
+- **Economics:** Microeconomics & game theory, econometrics (ARCH/GARCH), actuarial mathematics
+- **Programming:** Python (pandas, numpy, scipy, matplotlib, asyncio), R, LaTeX, Git
+- **Languages:** French (native), English (fluent)
+
+---
+
+## Currently
+
+- L3 in Mathematics & Economics at University of Angers (2026-2027)
+- Preparing applications for Master's programmes in Finance
+- Learning Mandarin
+
+---
+
+*This repository is my portfolio — personal projects, academic work, and experiments. More repos coming as I build.*
