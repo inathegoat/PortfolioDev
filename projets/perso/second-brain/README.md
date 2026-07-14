@@ -3,10 +3,6 @@
 **Local, evaluated, secure, modular RAG system.**  
 Index your documents, answer with exact citations, detect injections.
 
-[![CI](https://github.com/user/second-brain/actions/workflows/ci.yml/badge.svg)](https://github.com/user/second-brain/actions)
-![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-
 ---
 
 ## Quick Demo
@@ -244,4 +240,4 @@ Metrics evaluated:
 
 ## License
 
-MIT
+InaCorp - by InaTheGoat
