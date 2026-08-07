@@ -6,10 +6,8 @@ core/logger.py - Structured logging with rotation and CSV export hooks.
 import logging
 import logging.handlers
 import csv
-import os
 from pathlib import Path
 from datetime import datetime
-from typing import Optional
 
 
 def setup_logging(log_dir: str = "logs", level: str = "INFO", console: bool = True):

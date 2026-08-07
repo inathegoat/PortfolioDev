@@ -12,10 +12,10 @@
         "api_url": "https://api.hyperliquid.xyz",
         "private_key": "",
         "account": "",
-        "testnet": false
+        "testnet": true
     },
     "strategy": {
-        "active": true,
+        "active": false,
         "pairs": [
             "BTC",
             "ETH",

@@ -40,7 +40,7 @@ def simuX(N):
 
 #Simulation du pricing d'une option européenne ; ce code peut être simplifier je pense au lieu d'appeller 4 fois une fonction différente qui fait presque la même chose
 
-# Initialisation des paramètres 
+# Initialisation des paramètres
 
 S0 = 100
 sigma = 0.2
@@ -134,7 +134,7 @@ def APutMC(S0, K, T, r, sigma, N, seed=None):
     Smoins = S0 * np.exp((r - 1/2*sigma**2)*T - sigma*Z*np.sqrt(T))
     PPlus = np.maximum(K - St, 0) #Calcul du payoff pour chaque St
     Pmoins = np.maximum(K - Smoins, 0)
-    Pi = (PPlus + Pmoins) / 2   
+    Pi = (PPlus + Pmoins) / 2
     Y = Pi * np.exp(-r*T) #Ajout du payoff pondéré à la liste Y
     V0 = np.mean(Y) #Calcul du prix de l'option
     s = ((1/(N-1))*np.sum((Y - V0)**2))**(1/2) #Calcul de la variance de Y

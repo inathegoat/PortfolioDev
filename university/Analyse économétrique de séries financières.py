@@ -10,7 +10,7 @@ import matplotlib as mpl
 from matplotlib import pyplot as plt
 
 """
-#Test pour comprendre Yahoo Finance 
+#Test pour comprendre Yahoo Finance
 
 dat = yf.Ticker("MSFT")
 # Crée un objet "Ticker" pour Microsoft (symbole boursier: MSFT).

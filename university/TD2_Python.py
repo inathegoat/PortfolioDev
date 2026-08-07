@@ -22,12 +22,12 @@ L4 = [[k, 1, 10**(-k), (1/4)*10**(-2*k)] for k in range(40)]
 L5 = [[k, 1, 10**(-k), (1/5)*10**(-2*k)] for k in range(40)]
 
 print("Pour L4")
-for L in L4 : 
+for L in L4 :
     res = solEquationD2R(L[1], L[2], L[3])
     print(f"pour k = {L[0]} on a {res}")
-    
+
 print("Pour L5")
-for L in L5 : 
+for L in L5 :
     res = solEquationD2R(L[1], L[2], L[3])
     print(f"pour k = {L[0]} on a {res}")
 
@@ -36,15 +36,15 @@ for L in L5 :
 import cmath
 
 def solEquationD2(a, b, c):
-    
+
     delta = b**2 - 4*a*c
     if abs(delta) < 10**(-15) * abs(c/a):
-        
-        x1 = ( -b ) / ( 2 * a )    
+
+        x1 = ( -b ) / ( 2 * a )
         return [x1]
-    
+
     elif delta > 0 :
-        
+
         x1 = ( ( -b ) - math.sqrt(delta) )/ ( 2 * a )
         x2 = ( ( -b ) + math.sqrt(delta) )/ ( 2 * a )
         return [x1, x2]
@@ -55,7 +55,7 @@ def solEquationD2(a, b, c):
         return [sol1, sol2]
 
 
-    
+
 def solutionVersCoefficients(r1, r2):
     a = 1
     b = (r1 + r2)
@@ -69,7 +69,7 @@ def solutionVersCoefficients(r1, r2):
 def euler2(n):
     S = 0
     for j in range(1, n+1):
-        S += 1 / (j**2)  
+        S += 1 / (j**2)
     return S
 
 
@@ -94,7 +94,7 @@ def Liste(n):
     W = [0]
     for w in range(1, n+1):
         W.append(w**2)
-        
+
     return W
 
 def Liste2(n):
@@ -151,7 +151,7 @@ def eulerDecimalesExactes3(d):
     """Trouve la somme S et le plus petit N pour lequel S a les d premières décimales égales à celles de zeta(3)"""
     zeta3 = 1.202056903159594  # valeur approximative de zeta(3)
     str_zeta3 = f"{zeta3:.{d}f}"  # zeta(3) avec d décimales
-    
+
     N = 1
     while True:
         S = euler3(N)
@@ -202,7 +202,7 @@ def sommeDiviseursS(n):
             if borne**2 == n :
                 s = s + borne
             return s
-        
+
 
 
 def amicaux(n):
@@ -226,7 +226,7 @@ def estPremier(n):
 def CribleEratosthene(n):
     L = [k for k in range(2, n+1)]
     P = []
-    
+
     while L != []:
         a = L[0]
         P.append(a)
@@ -249,7 +249,7 @@ for k in X:
             s += 1
     Y.append(k/s)
     YC.append(np.log(k))
-    
+
 print(f"P = {P}")
 
 plt.plot(X, Y)
@@ -264,7 +264,7 @@ def Jumeaux(n):
     for j in range(1, len(M)-1):
         if M[j+1] - M[j] == 2 :
             J.append((M[j+1], M[j]))
-            
+
     return J
 
 print(Jumeaux(100))
@@ -278,4 +278,4 @@ n = 7
 
 
 
-        
+

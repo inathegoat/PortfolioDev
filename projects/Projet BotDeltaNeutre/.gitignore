@@ -1,0 +1,12 @@
+# Local configuration and secrets
+config.json
+.env
+.env.*
+!.env.example
+*secret*
+*credentials*
+
+# Runtime data
+**/data/*
+**/logs/*
+**/wallet_state.json

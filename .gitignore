@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+**/config.json
+**/*secret*
+**/*credentials*
+
+# Local data caches and runtime output
+**/data/**/.DS_Store
+**/data/**/cache/
+**/logs/*
+**/wallet_state.json
+
+# LaTeX build output
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+
+# Local documentation not approved for publication
+docs/
+
+# Notebooks and tools
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
