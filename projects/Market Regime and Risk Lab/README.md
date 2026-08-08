@@ -99,3 +99,17 @@ Ridge regression has lower RMSE than the historical-volatility baseline in all f
 - Local virtual environments, `.env` files, credentials and runtime output are excluded by the repository `.gitignore`.
 
 See `docs/Market Regime and Risk Lab - Complete Guide.md` for the full methodology, source list, limitations and interpretation notes.
+
+## Resources Used
+
+- [yfinance GitHub repository](https://github.com/ranaroussi/yfinance)
+- [NumPy documentation](https://numpy.org/doc/stable/)
+- [Matplotlib documentation](https://matplotlib.org/stable/)
+- [PCT_Changes](https://stackoverflow.com/questions/20000726/calculate-daily-returns-with-pandas-dataframe)
+- [Pandas Manage CSV](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)
+- [Read CSV](https://www.datacamp.com/tutorial/pandas-read-csv?utm_cid=23340058065&utm_aid=192632748929&utm_campaign=230119_1-ps-dscia~dsa-tofu~python_2-b2c_3-emea_4-prc_5-na_6-na_7-le_8-pdsh-go_9-nb-e_10-na_11-na&utm_loc=9242458-&utm_mtd=-c&utm_kw=&utm_source=google&utm_medium=paid_search&utm_content=ps-dscia~emea-en~dsa~tofu~tutorial~python&gad_source=1&gad_campaignid=23340058065&gbraid=0AAAAADQ9WsEVeS-08oyvbDWwem3cDo3wH&gclid=CjwKCAjw4dDTBhAqEiwAkHYmSh0hc2yPxGO1Q_iEYqxbBS1ULROsyBc_1fseN81KawDFoGxDInsERRoCJKwQAvD_BwE)
+- [Linear Regression](https://www.youtube.com/watch?v=O2Cw82YR5Bo)
+- [Random Forest](https://www.youtube.com/watch?v=_QuGM_FW9eo&pp=ygUlcmFuZG9tIGZvcmVzdCBtYWNoaW5lIGxlYXJuaW5nIHB5dGhvbg%3D%3D)
+-  [scikit-learn Pipelines](https://scikit-learn.org/stable/modules/compose.html)
+- [scikit-learn TimeSeriesSplit](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html)
+- [statsmodels time-series analysis](https://www.statsmodels.org/stable/tsa.html)
