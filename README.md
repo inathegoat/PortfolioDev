@@ -12,8 +12,6 @@ Building quantitative-finance tools, mathematical models and data-driven softwar
 I am completing a Double Licence in Mathematics and Economics at the University of Angers. My current goal is to work at the intersection of quantitative finance, machine learning and energy or commodity markets.
 
 - **Current status:** L3 Mathematics & Economics, 2026–2027
-- **Target:** MSc programmes in quantitative finance, computational finance and AI for markets, 2027
-- **Interests:** financial modelling, systematic strategies, market risk and applied machine learning
 - **Research:** internship at LAREMA, Department of Mathematics, University of Angers
 
 ## Focus
